@@ -1,0 +1,29 @@
+model:
+  name: "Qwen/Qwen2-0.5B"
+  trust_remote_code: true
+
+data:
+  path: "/home/tlmsq/rlhf-trainer/data/"
+  max_length: 1024
+
+training:
+  output_dir: "./models/reward_model"
+  batch_size: 8
+  grad_accum_steps: 8
+  lr: 2e-5
+  epochs: 5
+  save_steps: 100
+  log_steps: 10
+  eval_steps: 50
+  mixed_precision: true
+  report_to: "tensorboard"
+
+deepspeed:
+  fp16:
+    enabled: true
+  zero_optimization:
+    stage: 2
+    allgather_partitions: true
+    reduce_scatter: true
+  gradient_accumulation_steps: 8
+  train_batch_size: 64

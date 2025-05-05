@@ -1,0 +1,5 @@
+{"prompt": "请解释什么是量子计算？", "chosen": "量子计算是一种利用量子位进行信息处理的计算方式，它利用了量子叠加和纠缠等特性，能够在某些问题上显著超越经典计算机的性能。", "rejected": "量子计算是一种新型的编程语言，主要用于编写高性能应用程序。", "split": "train"}
+{"prompt": "如何制作一杯拿铁咖啡？", "chosen": "制作一杯拿铁咖啡的步骤如下：1. 准备浓缩咖啡；2. 在杯中倒入浓缩咖啡；3. 将蒸奶倒入杯中；4. 可选地加入奶泡装饰。", "rejected": "制作拿铁咖啡需要先学习C++语言，然后编写一个咖啡机控制程序。", "split": "train"}
+{"prompt": "请写一首关于秋天的诗。", "chosen": "秋风轻拂叶飘黄，金菊盛开映斜阳。雁阵南归声渐远，一壶清酒慰愁肠。", "rejected": "秋天是收获的季节，农民忙着收割庄稼，天气变冷了。", "split": "train"}
+{"prompt": "请告诉我如何保持健康的生活方式？", "chosen": "保持健康的生活方式包括：均衡饮食、规律运动、充足睡眠、减少压力和定期体检。", "rejected": "健康的生活方式就是每天喝很多水，其他无所谓。", "split": "validation"}
+{"prompt": "请用英文写一封感谢信。", "chosen": "Dear Mr. Smith, Thank you very much for your support and guidance. I truly appreciate the time and effort you have invested in helping me. Sincerely, John", "rejected": "Thanks for everything. You're the best!", "split": "validation"}

@@ -1,0 +1,29 @@
+model:
+  name: "meta-llama/Llama-3-8B-Instruct"
+  ref_model: "meta-llama/Llama-3-8B-Instruct"
+
+data:
+  path: "../data/preferences-mini.json"
+
+training:
+  output_dir: "./models/rl_policy"
+  batch_size: 4
+  grad_accum_steps: 16
+  lr: 5e-6
+  epochs: 3
+  save_steps: 50
+  log_steps: 10
+  beta: 0.1
+  loss_type: "sigmoid"
+  mixed_precision: true
+  report_to: "tensorboard"
+
+deepspeed:
+  fp16:
+    enabled: true
+  zero_optimization:
+    stage: 2
+    allgather_partitions: true
+    reduce_scatter: true
+  gradient_accumulation_steps: 8
+  train_batch_size: 64
