@@ -6,7 +6,7 @@ from transformers import DataCollatorWithPadding
 from deepspeed import DeepSpeedConfig
 import yaml
 import argparse
-
+from transformers import TrainingArguments
 def main(args):
     # Load config
     with open(args.config, 'r') as f:
@@ -19,7 +19,11 @@ def main(args):
     # Load tokenizer and dataset
     tokenizer = AutoTokenizer.from_pretrained(config['model']['name'])
     dataset = load_dataset(config['data']['path'])
-    
+    # dataset = dataset.train_test_split(test_size=0.1)  # Adjust test_size as needed
+    # tokenized_datasets = DatasetDict({
+    #     "train": dataset["train"].map(tokenize_function, batched=True),
+    #     "validation": dataset["test"].map(tokenize_function, batched=True)
+    # })
     # Tokenization function
     def tokenize_function(examples):
         prompts = examples["prompt"]
@@ -59,11 +63,10 @@ def main(args):
         "num_train_epochs": config['training']['epochs'],
         "save_steps": config['training']['save_steps'],
         "logging_steps": config['training']['log_steps'],
-        "evaluation_strategy": "steps",
         "eval_steps": config['training']['eval_steps'],
         "deepspeed": ds_config,
         "bf16": config['training']['mixed_precision'],
-        "report_to": config['training']['report_to']
+        "report_to": config['training']['report_to'],
     }
     
     data_collator = DataCollatorWithPadding(
@@ -85,14 +88,45 @@ def main(args):
             "input_ids_rejected": batch_rejected["input_ids"],
             "attention_mask_rejected": batch_rejected["attention_mask"],
         }
-    
+    from trl import RewardConfig
+    training_config = RewardConfig(
+        output_dir="outputs/rm",
+        per_device_train_batch_size=4,
+        gradient_accumulation_steps=8,
+        learning_rate=5e-5,
+        num_train_epochs=3,
+        save_steps=500,
+        logging_steps=100,
+        eval_steps=200,
+        deepspeed="/home/tlmsq/rlhf-trainer/configs/ds_config.yaml",  # Optional
+        bf16=True,
+        report_to=["tensorboard"],
+        disable_dropout=True,
+        remove_unused_columns=False,  # Important for custom data collators
+    )
     trainer = RewardTrainer(
         model=model,
-        args=training_args,
+        args=training_config,
         train_dataset=tokenized_datasets["train"],
-        eval_dataset=tokenized_datasets["validation"],
-        data_collator=custom_data_collator
+        eval_dataset=tokenized_datasets["train"],
+        data_collator=custom_data_collator,
+        processing_class=tokenizer
     )
+    # max_length = 1024
+    # from functools import partial
+    # filter_fn = lambda x, max_len: len(x["input_ids_chosen"]) <= max_len and len(x["input_ids_rejected"]) <= max_len
+    # train_dataset = tokenized_datasets["train"].filter(
+    #     partial(filter_fn, max_len=max_length),
+    #     num_proc=training_config.dataset_num_proc,
+    # )
+    # trainer.train_dataset = train_dataset
+    # trainer = RewardTrainer(
+    #     model=model,
+    #     args=training_args_obj,
+    #     train_dataset=tokenized_datasets["train"],
+    #     eval_dataset=tokenized_datasets["train"],
+    #     data_collator=custom_data_collator
+    # )
     # Train
     trainer.train()
     
