@@ -93,6 +93,34 @@ wheels = [
 ]
 
 [[package]]
+name = "boto3"
+version = "1.38.11"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "botocore" },
+    { name = "jmespath" },
+    { name = "s3transfer" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/ec/43/8dbf7397a7d3a66a2e65caa3818001437145a137802799c38691f446e732/boto3-1.38.11.tar.gz", hash = "sha256:ecf141395b8ede64dbc975c62a55fbb2231fc3e50904d65c088bc83ae98595cf", size = 111765 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/9a/ea/89465bab299d9813412fdeb6fb09b215d3a842b6f352b3741f68269f9935/boto3-1.38.11-py3-none-any.whl", hash = "sha256:dc3ff3a382d33d1e7e4141a5c63d084faf90657d6008ef917a3e64cfcbbb47e0", size = 139915 },
+]
+
+[[package]]
+name = "botocore"
+version = "1.38.11"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "jmespath" },
+    { name = "python-dateutil" },
+    { name = "urllib3" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/22/5d/96ec53163bb60f16777af91f5412df73beb79675d264fd3f1cd57dcea2fe/botocore-1.38.11.tar.gz", hash = "sha256:44c5cb042fefedbe0b0ae4c3f96aed03f4cab6973d4317410c8d7c6d32807aef", size = 13884039 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/07/06/bbad7f3e96798b30a7d6a9b0be4be4cbf3793d476ff6578b7f1322221c37/botocore-1.38.11-py3-none-any.whl", hash = "sha256:f5cb7a292774d4a212347475d95668bb96c1fe322e71c19bf871fb06503597a5", size = 13541099 },
+]
+
+[[package]]
 name = "certifi"
 version = "2025.4.26"
 source = { registry = "https://pypi.org/simple" }
@@ -121,6 +149,18 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/44/96/392abd49b094d30b91d9fbda6a69519e95802250b777841cf3bda8fe136c/charset_normalizer-3.4.2-cp313-cp313-win32.whl", hash = "sha256:aaeeb6a479c7667fbe1099af9617c83aaca22182d6cf8c53966491a0f1b7ffb7", size = 98064 },
     { url = "https://files.pythonhosted.org/packages/e9/b0/0200da600134e001d91851ddc797809e2fe0ea72de90e09bec5a2fbdaccb/charset_normalizer-3.4.2-cp313-cp313-win_amd64.whl", hash = "sha256:aa6af9e7d59f9c12b33ae4e9450619cf2488e2bbe9b44030905877f0b2324980", size = 105641 },
     { url = "https://files.pythonhosted.org/packages/20/94/c5790835a017658cbfabd07f3bfb549140c3ac458cfc196323996b10095a/charset_normalizer-3.4.2-py3-none-any.whl", hash = "sha256:7f56930ab0abd1c45cd15be65cc741c28b1c9a34876ce8c17a2fa107810c0af0", size = 52626 },
+]
+
+[[package]]
+name = "click"
+version = "8.1.8"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "colorama", marker = "sys_platform == 'win32'" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/b9/2e/0090cbf739cee7d23781ad4b89a9894a41538e4fcf4c31dcdd705b78eb8b/click-8.1.8.tar.gz", hash = "sha256:ed53c9d8990d83c2a27deae68e4ee337473f6330c040a31d4225c9574d16096a", size = 226593 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/7e/d4/7ebdbd03970677812aac39c869717059dbb71a4cfc033ca6e5221787892c/click-8.1.8-py3-none-any.whl", hash = "sha256:63c132bbbed01578a06712a2d1f497bb62d9c1c0d329b7903a866228027263b2", size = 98188 },
 ]
 
 [[package]]
@@ -309,6 +349,15 @@ wheels = [
 ]
 
 [[package]]
+name = "jmespath"
+version = "1.0.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/00/2a/e867e8531cf3e36b41201936b7fa7ba7b5702dbef42922193f05c8976cd6/jmespath-1.0.1.tar.gz", hash = "sha256:90261b206d6defd58fdd5e85f478bf633a2901798906be2ad389150c5c60edbe", size = 25843 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/31/b4/b9b800c45527aadd64d5b442f9b932b00648617eb5d63d2c7a6587b7cafc/jmespath-1.0.1-py3-none-any.whl", hash = "sha256:02e2e4cc71b5bcab88332eebf907519190dd9e6e82107fa7f83b1003a6252980", size = 20256 },
+]
+
+[[package]]
 name = "markdown-it-py"
 version = "3.0.0"
 source = { registry = "https://pypi.org/simple" }
@@ -355,6 +404,20 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/d6/54/cfe61301667036ec958cb99bd3efefba235e65cdeb9c84d24a8293ba1d90/mdurl-0.1.2.tar.gz", hash = "sha256:bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba", size = 8729 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/b3/38/89ba8ad64ae25be8de66a6d463314cf1eb366222074cfda9ee839c56a4b4/mdurl-0.1.2-py3-none-any.whl", hash = "sha256:84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8", size = 9979 },
+]
+
+[[package]]
+name = "modelscope"
+version = "1.25.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "requests" },
+    { name = "tqdm" },
+    { name = "urllib3" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/c0/4b/1c11ca8bea237b49ad55889fd2387c012ce5d1fc574d4280cd593c32f41b/modelscope-1.25.0.tar.gz", hash = "sha256:b9a5ef2e68f17a63c8ea688104d82de1fc8b506c37ded1aeedfcf3eb6028b60a", size = 4388940 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/38/8f/b051fc200ba09584f4d53c35da68e4e3d08a0a8688dab60d6fe726e290c8/modelscope-1.25.0-py3-none-any.whl", hash = "sha256:30f0b8c94502ca44c911a9ce5ff388b3de4276c5b5cba2f850bc370dbf8cac57", size = 5854156 },
 ]
 
 [[package]]
@@ -614,6 +677,15 @@ wheels = [
 ]
 
 [[package]]
+name = "nvidia-ml-py"
+version = "12.575.51"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/d2/4d/6f017814ed5ac28e08e1b8a62e3a258957da27582c89b7f8f8b15ac3d2e7/nvidia_ml_py-12.575.51.tar.gz", hash = "sha256:6490e93fea99eb4e966327ae18c6eec6256194c921f23459c8767aee28c54581", size = 46597 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/db/24/552ebea28f0570b9e65e62b50287a273804c9f997cc1c2dcd4e2d64b9e7d/nvidia_ml_py-12.575.51-py3-none-any.whl", hash = "sha256:eb8641800d98ce40a22f479873f34b482e214a7e80349c63be51c3919845446e", size = 47547 },
+]
+
+[[package]]
 name = "nvidia-nccl-cu12"
 version = "2.26.2"
 source = { registry = "https://pypi.org/simple" }
@@ -818,6 +890,18 @@ wheels = [
 ]
 
 [[package]]
+name = "pynvml"
+version = "12.0.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "nvidia-ml-py" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/26/6f/6b5880ed0239e85b9a39aed103b65b2ef81425beef9f45e5c035bf008330/pynvml-12.0.0.tar.gz", hash = "sha256:299ce2451a6a17e6822d6faee750103e25b415f06f59abb8db65d30f794166f5", size = 33636 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/ed/df/f7cf07a65a96dd11d71f346f9c2863accdd4784da83af7181b067d556cbc/pynvml-12.0.0-py3-none-any.whl", hash = "sha256:fdff84b62a27dbe98e08e1a647eb77342bef1aebe0878bcd15e99a83fcbecb9e", size = 26560 },
+]
+
+[[package]]
 name = "python-dateutil"
 version = "2.9.0.post0"
 source = { registry = "https://pypi.org/simple" }
@@ -894,6 +978,15 @@ wheels = [
 ]
 
 [[package]]
+name = "reward"
+version = "0.0.4"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/53/c1/6dd040f4782a210477b9b20e4eff23c803b5a6eb73cbeb848245a483ee63/reward-0.0.4.tar.gz", hash = "sha256:f9701c20f085bad2c4066d0a5091443fd1bf04a4b21e190767a1877e02fc438f", size = 42798 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/85/ad/d1926c2b9ce5b24df79e800b40852ff0f1e98b3574feea002687a988a52b/reward-0.0.4-py3-none-any.whl", hash = "sha256:367059f5c4d54cb5a5b972da159754827afb749c913c0758a51c8986ecf62e19", size = 64595 },
+]
+
+[[package]]
 name = "rich"
 version = "14.0.0"
 source = { registry = "https://pypi.org/simple" }
@@ -913,6 +1006,9 @@ source = { virtual = "." }
 dependencies = [
     { name = "datasets" },
     { name = "deepspeed" },
+    { name = "modelscope" },
+    { name = "reward" },
+    { name = "swanlab" },
     { name = "torch" },
     { name = "trl" },
 ]
@@ -921,8 +1017,23 @@ dependencies = [
 requires-dist = [
     { name = "datasets", specifier = ">=3.5.1" },
     { name = "deepspeed", specifier = ">=0.16.7" },
+    { name = "modelscope", specifier = ">=1.25.0" },
+    { name = "reward", specifier = ">=0.0.4" },
+    { name = "swanlab", specifier = ">=0.5.7" },
     { name = "torch", specifier = ">=2.7.0" },
     { name = "trl", specifier = ">=0.17.0" },
+]
+
+[[package]]
+name = "s3transfer"
+version = "0.12.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "botocore" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/fc/9e/73b14aed38ee1f62cd30ab93cd0072dec7fb01f3033d116875ae3e7b8b44/s3transfer-0.12.0.tar.gz", hash = "sha256:8ac58bc1989a3fdb7c7f3ee0918a66b160d038a147c7b5db1500930a607e9a1c", size = 149178 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/89/64/d2b49620039b82688aeebd510bd62ff4cdcdb86cbf650cc72ae42c5254a3/s3transfer-0.12.0-py3-none-any.whl", hash = "sha256:35b314d7d82865756edab59f7baebc6b477189e6ab4c53050e28c1de4d9cce18", size = 84773 },
 ]
 
 [[package]]
@@ -963,6 +1074,40 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/94/e7/b2c673351809dca68a0e064b6af791aa332cf192da575fd474ed7d6f16a2/six-1.17.0.tar.gz", hash = "sha256:ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81", size = 34031 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/b7/ce/149a00dd41f10bc29e5921b496af8b574d8413afcd5e30dfa0ed46c2cc5e/six-1.17.0-py2.py3-none-any.whl", hash = "sha256:4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274", size = 11050 },
+]
+
+[[package]]
+name = "swankit"
+version = "0.1.7"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "pyyaml" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/f8/5f/08b280d3bf0c4aae3a68281e634cbfc5b762481fa9344cad7e21f370535d/swankit-0.1.7.tar.gz", hash = "sha256:e9c16a24f878a8774c949d399c0347d2a5831d915838ab7137f100c7e3e47631", size = 20386 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/74/75/8152b1f1a3034c3ba2369133264ddf9850df62b3ba2b75fd7c104d80090f/swankit-0.1.7-py3-none-any.whl", hash = "sha256:3f3d8de7c0159b98d3e8f993f4babdbdbc3ee8786f3981174f85fd3fa2439a2a", size = 23268 },
+]
+
+[[package]]
+name = "swanlab"
+version = "0.5.7"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "boto3" },
+    { name = "botocore" },
+    { name = "click" },
+    { name = "psutil" },
+    { name = "pydantic" },
+    { name = "pynvml" },
+    { name = "pyyaml" },
+    { name = "requests" },
+    { name = "setuptools" },
+    { name = "swankit" },
+    { name = "urllib3" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/1a/d4/da8a69221f10e0ebd6445d0b477607618c8583bf7df23ec837f610528825/swanlab-0.5.7.tar.gz", hash = "sha256:25d9deaf6f799c9520b032599607e70dfebcd45e4cdd9d76d1c8350d9543704a", size = 188670 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/43/95/52d0c012eb941bb6df31f31a4b3ee27536eb73191dce4adec2ded7d27c23/swanlab-0.5.7-py3-none-any.whl", hash = "sha256:a5be3889a1ecf4e47a7a4501ee658b6847e25f2db378596be9a7677ae73bdec4", size = 200347 },
 ]
 
 [[package]]
